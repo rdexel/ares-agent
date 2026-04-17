@@ -1,0 +1,11 @@
+node_modules/
+output/
+.DS_Store
+.claude/settings.local.json
+
+# Gmail MCP — never commit these
+gmail-mcp/credentials.json
+gmail-mcp/tokens/
+gmail-mcp/accounts.json
+.claude/
+skills/contact-monitor/state.json
