@@ -1,11 +1,19 @@
+# Local infrastructure — boss sets up on his machine
+gmail-mcp/
+.mcp.json
 node_modules/
-output/
-.DS_Store
-.claude/settings.local.json
+tsconfig.json
+package.json
+package-lock.json
 
-# Gmail MCP — never commit these
-gmail-mcp/credentials.json
-gmail-mcp/tokens/
-gmail-mcp/accounts.json
+# Generated output
+output/
+
+# OS / editor noise
+.DS_Store
+
+# Claude local config
 .claude/
+
+# Runtime state
 skills/contact-monitor/state.json
