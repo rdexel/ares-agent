@@ -5,7 +5,7 @@
       "command": "npx",
       "args": [
         "tsx",
-        "/path/to/advanced-gmail-mcp/src/server.ts"
+        "/ABSOLUTE/PATH/TO/Hubspot/gmail-mcp/src/server.ts"
       ]
     },
     "google-drive": {
@@ -13,23 +13,31 @@
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-gdrive"],
       "env": {
-        "GDRIVE_OAUTH_PATH": "/path/to/credentials.json",
-        "GDRIVE_CREDENTIALS_PATH": "~/.config/google-drive-mcp/tokens.json"
+        "GDRIVE_OAUTH_PATH": "/ABSOLUTE/PATH/TO/credentials.json",
+        "GDRIVE_CREDENTIALS_PATH": "/Users/YOU/.config/google-drive-mcp/tokens.json"
       }
-    },
-    "fetch": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-fetch"]
     },
     "google-calendar": {
       "type": "stdio",
       "command": "npx",
       "args": ["-y", "@cocal/google-calendar-mcp"],
       "env": {
-        "GOOGLE_OAUTH_CREDENTIALS": "/path/to/credentials.json",
-        "GOOGLE_CALENDAR_MCP_TOKEN_PATH": "~/.config/google-calendar-mcp/tokens.json"
+        "GOOGLE_OAUTH_CREDENTIALS": "/ABSOLUTE/PATH/TO/credentials.json",
+        "GOOGLE_CALENDAR_MCP_TOKEN_PATH": "/Users/YOU/.config/google-calendar-mcp/tokens.json"
       }
+    },
+    "hubspot": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@hubspot/mcp-server"],
+      "env": {
+        "PRIVATE_APP_ACCESS_TOKEN": "YOUR_HUBSPOT_PRIVATE_APP_TOKEN"
+      }
+    },
+    "fetch": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["mcp-server-fetch"]
     }
   }
 }

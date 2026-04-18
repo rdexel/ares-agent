@@ -1,10 +1,12 @@
-# Local infrastructure — boss sets up on his machine
-gmail-mcp/
+# Secrets — NEVER commit
 .mcp.json
+**/credentials.json
+**/tokens/
+**/accounts.json
+
+# Dependencies — regenerable via npm install
 node_modules/
-tsconfig.json
-package.json
-package-lock.json
+**/node_modules/
 
 # Generated output
 output/
@@ -12,8 +14,8 @@ output/
 # OS / editor noise
 .DS_Store
 
-# Claude local config
+# Claude local config (per-user)
 .claude/
 
-# Runtime state
-skills/contact-monitor/state.json
+# Runtime agent state (per-user)
+state/
