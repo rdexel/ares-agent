@@ -17,6 +17,11 @@
         "GDRIVE_CREDENTIALS_PATH": "~/.config/google-drive-mcp/tokens.json"
       }
     },
+    "fetch": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-fetch"]
+    },
     "google-calendar": {
       "type": "stdio",
       "command": "npx",
