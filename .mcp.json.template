@@ -5,8 +5,26 @@
       "command": "npx",
       "args": [
         "tsx",
-        "./gmail-mcp/src/server.ts"
+        "/path/to/advanced-gmail-mcp/src/server.ts"
       ]
+    },
+    "google-drive": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-gdrive"],
+      "env": {
+        "GDRIVE_OAUTH_PATH": "/path/to/credentials.json",
+        "GDRIVE_CREDENTIALS_PATH": "~/.config/google-drive-mcp/tokens.json"
+      }
+    },
+    "google-calendar": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@cocal/google-calendar-mcp"],
+      "env": {
+        "GOOGLE_OAUTH_CREDENTIALS": "/path/to/credentials.json",
+        "GOOGLE_CALENDAR_MCP_TOKEN_PATH": "~/.config/google-calendar-mcp/tokens.json"
+      }
     }
   }
 }

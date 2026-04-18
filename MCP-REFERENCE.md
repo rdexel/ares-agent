@@ -178,6 +178,48 @@ These are NOT MCP tools — they're direct API calls used by the skills in this 
 
 ---
 
+## Google Drive MCP (`mcp__google-drive__*`)
+
+Covers Drive files, Docs, Sheets, Slides. Auth: OAuth2 using Gmail MCP credentials.json. Tokens at `~/.config/google-drive-mcp/tokens.json` (Raleigh's account authenticated 2026-04-18).
+
+**Auth env vars:** `GDRIVE_OAUTH_PATH` = credentials.json, `GDRIVE_CREDENTIALS_PATH` = token file path. Run `GDRIVE_OAUTH_PATH=... npx @modelcontextprotocol/server-gdrive auth` to re-auth.
+
+**Tim's Drive:** Not yet authenticated — run auth flow with tim@socratics.ai when needed.
+
+| Tool | What it does |
+|------|-------------|
+| `search_files` | Search Drive by name, type, content |
+| `read_file` | Read a file by ID or path |
+| `create_file` | Create Docs, Sheets, etc. |
+| `update_file` | Edit existing files |
+| `list_files` | List files in a folder |
+| `share_file` | Manage file permissions |
+
+---
+
+## Google Calendar MCP (`mcp__google-calendar__*`)
+
+Full calendar read/write. Auth: OAuth2 using Gmail MCP credentials.json. Tokens at `~/.config/google-calendar-mcp/tokens.json` (Raleigh's account authenticated 2026-04-18).
+
+**Auth env vars:** `GOOGLE_OAUTH_CREDENTIALS` = credentials.json, `GOOGLE_CALENDAR_MCP_TOKEN_PATH` = token file path. Run `npx @cocal/google-calendar-mcp auth [account-id]` to re-auth or add accounts.
+
+**Tim's Calendar:** Not yet authenticated — run `npx @cocal/google-calendar-mcp auth tim` with tim@socratics.ai when ready.
+
+| Tool | What it does |
+|------|-------------|
+| `list_events` | Query upcoming events with date filters |
+| `search_events` | Find events by text |
+| `create_event` | Add calendar events |
+| `update_event` | Modify existing events |
+| `delete_event` | Remove events |
+| `get_freebusy` | Check availability windows |
+| `list_calendars` | Show all calendars |
+| `respond_to_event` | Accept/decline invitations |
+
+**When to use:** Auto-prep meeting briefs, check what's on the calendar before a daily report, detect upcoming client calls.
+
+---
+
 ## Key Links
 
 | Resource | URL |
