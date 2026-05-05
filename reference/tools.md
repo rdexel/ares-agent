@@ -162,6 +162,31 @@ Raw HTTP fetching for arbitrary URLs. Use for research when WebFetch isn't enoug
 
 ---
 
+## Hunter.io (`scripts/hunter.js`)
+
+Email finding and verification. API key in `.env` (`HUNTER_API_KEY`). Call via Bash:
+
+```bash
+HUNTER_API_KEY=$(grep HUNTER_API_KEY /Users/raleighdexel/Desktop/Desktop/Socratics/Agents/ares/.env | cut -d= -f2) node /Users/raleighdexel/Desktop/Desktop/Socratics/Agents/ares/scripts/hunter.js <command> <args>
+```
+
+| Command | Args | Returns |
+|---------|------|---------|
+| `domain` | `<domain>` | All known emails for the domain (top 10), email pattern, org name |
+| `find` | `<first> <last> <domain>` | Best-guess email + confidence score |
+| `verify` | `<email>` | Deliverability status, MX records, disposable/webmail flags |
+| `count` | `<domain>` | Total emails Hunter has indexed for the domain |
+
+**When to use:**
+- No email on a HubSpot contact → `find` before enrolling in a sequence
+- Unknown domain pattern → `domain` to see format and confirm org
+- Suspicious or unknown email → `verify` before outreach
+- Scoping a domain before cold campaign → `count` to gauge addressable list size
+
+**Rate limits:** 25 requests/month on free tier; paid tiers higher. Verify sparingly — each `verify` call costs a request.
+
+---
+
 ## Scheduling / automation (builtin)
 
 | Tool | What |

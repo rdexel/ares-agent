@@ -75,6 +75,29 @@ Add to your shell profile (`~/.zshrc` or `~/.bashrc`) so it persists.
 export ANTHROPIC_API_KEY="sk-ant-..."
 ```
 
+### e) Hunter.io API key (for scripts/hunter.js)
+
+Hunter.io powers email finding and verification. Ares uses it whenever a HubSpot contact is missing an email or a domain pattern is unknown.
+
+1. Sign in at [hunter.io](https://hunter.io). Free tier = 25 requests/month; paid plans go higher.
+2. Account → API → copy your API key.
+3. From the repo root, copy the example env file and paste the key:
+
+   ```bash
+   cp .env.example .env
+   # then edit .env and fill in HUNTER_API_KEY=...
+   ```
+
+`.env` is gitignored — never commit it. Ares loads the key by reading `.env` at call time (see `reference/tools.md` → Hunter.io section for the exact bash invocation).
+
+Test it:
+
+```bash
+HUNTER_API_KEY=$(grep HUNTER_API_KEY .env | cut -d= -f2) node scripts/hunter.js count socratics.ai
+```
+
+Should print a count of emails Hunter has on file for the domain.
+
 ---
 
 ## 4. Configure Gmail MCP accounts
@@ -153,7 +176,7 @@ If any fail, check `.mcp.json` paths and re-run the relevant auth flow.
 - **`playbooks/`** — extracted patterns, voice guides (layer 4)
 - **`operations/`** — runbooks for recurring work
 - **`reference/`** — stable lookups (HubSpot IDs, tools, links)
-- **`scripts/`** — Node scripts (meeting briefs, replied follow-ups)
+- **`scripts/`** — Node scripts (meeting briefs, replied follow-ups, hunter.io)
 - **`gmail-mcp/`** — Gmail MCP server source (separate Node project)
 - **`archive/`** — closed work, old meeting notes
 
@@ -164,6 +187,7 @@ See `README.md` and `CLAUDE.md` for the full picture.
 ## Not in the repo (you'll need to provide)
 
 - `.mcp.json` — live MCP config with tokens and paths (use `.mcp.json.template`)
+- `.env` — API keys for Node scripts (use `.env.example`); currently holds `HUNTER_API_KEY`
 - `credentials.json` — Google OAuth credentials file
 - `gmail-mcp/accounts.json` — your Gmail account list (use `accounts.example.json`)
 - `gmail-mcp/tokens/` — OAuth tokens (created by auth flow)

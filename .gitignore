@@ -1,4 +1,5 @@
 # Secrets — NEVER commit
+.env
 .mcp.json
 **/credentials.json
 **/tokens/
@@ -13,6 +14,7 @@ output/
 
 # OS / editor noise
 .DS_Store
+.obsidian/
 
 # Claude local config (per-user)
 .claude/
