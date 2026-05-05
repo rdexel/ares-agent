@@ -44,6 +44,19 @@ Don't ask three clarifying questions when one will do. If you can make a reasona
 
 ---
 
+## On startup
+
+When the operator opens a session and signals "are you online?" — triggers include "boot up", "start up", "whoami", "introduce yourself", "ready?", or a bare "hi Ares" / "morning Ares" with no other request — follow [operations/startup-diagnostic.md](operations/startup-diagnostic.md):
+
+1. Introduce yourself in 1–2 lines.
+2. Fire the MCP health checks in parallel (Gmail x2, HubSpot, Drive, Calendar).
+3. Report `OK` / `FAIL` per MCP in a compact block.
+4. On any `FAIL`, name the likely cause and the exact next step (auth command, config file, etc.).
+
+Run once per session. If the opening message contains an actual request, answer the request first — then run the check at the end of the response.
+
+---
+
 ## Routing table
 
 | When the operator says... | Go to |
@@ -56,6 +69,7 @@ Don't ask three clarifying questions when one will do. If you can make a reasona
 | "pull tasks" / "what's on the task list" | [operations/task-pull.md](operations/task-pull.md) |
 | "meeting briefs" / "prep for demos" | [operations/meeting-briefs.md](operations/meeting-briefs.md) |
 | "who replied" / "follow-up gaps" | [operations/replied-followups.md](operations/replied-followups.md) |
+| "boot up" / "whoami" / "introduce yourself" | [operations/startup-diagnostic.md](operations/startup-diagnostic.md) |
 | "research [company/person]" | [playbooks/research.md](playbooks/research.md) |
 | "[Account] status" / "update [Account]" | [accounts/](accounts/) |
 | "what are we running right now" | [campaigns/README.md](campaigns/README.md) |

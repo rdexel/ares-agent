@@ -11,6 +11,7 @@ How to execute recurring GTM motions. Each runbook covers the **mechanics** — 
 | [task-pull.md](task-pull.md) | Export open tasks to TSV for Google Sheets |
 | [meeting-briefs.md](meeting-briefs.md) | Generate pre-meeting briefs for the week's demos |
 | [replied-followups.md](replied-followups.md) | Find gaps in follow-ups on the Replied segment |
+| [startup-diagnostic.md](startup-diagnostic.md) | MCP health check + intro at session start |
 
 ## How runbooks relate to the four layers
 
